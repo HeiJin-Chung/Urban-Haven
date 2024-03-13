@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Header</title>
+    
+    <!-- Bootstrap CSS (Include Bootstrap from a CDN or locally) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="try.css">
+    <style>
+
+        body{
+            font-weight:600;
+            font-size: 15px;
+            font-family: Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+        }
+
+        .rollup{
+            display:flex;
+            justify-content:space-around
+        }
+
+        .icon{
+            display:block;
+            width:1.5em;
+        }
+
+        .product-catalog{
+            cursor: pointer;
+        }
+
+        #logo{
+            cursor: pointer;
+            width: 5vw;
+            mix-blend-mode: hard-light;
+        }
+
+        #profile,#cart{
+            cursor: pointer;
+        }
+
+        .searchBar {
+          width: 28vw;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          
+        }
+
+        #searchQueryInput {
+          width: 100%;
+          height: 2.8rem;
+          background: rgb(227, 227, 227);
+          border-radius: 0.5rem;
+          outline: none;
+          border: none;
+        
+          padding: 0 3.5rem 0 1.5rem;
+          font-size: 1rem;
+        }
+
+        #searchBtn {
+          width: 3.5rem;
+          height: 2.8rem;
+          margin-left: -3.5rem;
+          background: none;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+
+        sup{
+            vertical-align: super;
+            font-size:x-small;
+            margin:2px;
+            color:red;
+        }
+
+        @media only screen and (max-width:768px) {
+            .searchBar{
+                display: none;
+            }
+        
+            .icon{
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+        
+    <img src="logo.jpg" id="logo" alt="Company Logo">
+    
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse rollup" id="navbarSupportedContent">
+
+        <ul class="navbar nav">
+
+            <li class="nav-item ml-5 product-catalog" id="TechWonders">TECH</li>
+            <li class="nav-item ml-5 product-catalog" id="FitnessEssentials">FITNESS</li>
+            <li class="nav-item ml-5 product-catalog" id="GamedayWinners">SPORTS</li>
+            <li class="nav-item ml-5 ">STUDIO<sup>NEW</sup>  </li>
+
+            <!-- <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li> -->
+                
+            <li>
+            <div class="searchBar mx-5">
+                <input id="searchQueryInput" type="text" placeholder="Search for products, brands and more"/>
+                <button id="searchBtn" type="submit">
+                  <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+                </button>
+            </div>
+            </li>
+
+        <li>
+            <div class="column m-3">
+                <img src="profile.png" alt="Profile Icon" class="icon mx-auto" id="profile">
+                <p>Profile</p>
+            </div>
+        </li>
+        
+        <li>
+            <div class="column m-3">
+                <img src="bag.png" alt="Cart Icon" class="icon mx-auto" id="cart">
+                <p>Bag</p>
+            </div>
+        </li>
+
+        </ul>
+
+    </div>
+</nav>    
+
+
+
+<!-- Bootstrap JS (Include Bootstrap JS from a CDN or locally) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+    // Access username from URL
+const queryString=window.location.search;
+const urlParams=new URLSearchParams(queryString);
+const username=urlParams.get('username');
+console.log(username);
+
+
+// Redirect to product catalog
+let catalog=document.querySelectorAll('.product-catalog');
+
+catalog.forEach((interest)=>{
+    interest.addEventListener('click',(event)=>{
+        let category=event.currentTarget.id;
+        console.log(category);
+        window.location.href=`/Catalog?username=${encodeURIComponent(username)}&category=${category}`;
+    })
+});
+
+// Redirect to User Profile
+let profile=document.getElementById('profile');
+profile.addEventListener('click',()=>{
+    window.location.href=`/MyProfile?username=${encodeURIComponent(username)}`;
+});
+
+// Redirect to User Cart
+let bag=document.getElementById('cart');
+bag.addEventListener('click',()=>{
+    window.location.href=`/Cart?username=${encodeURIComponent(username)}`;
+});
+
+// Redirect to home
+const logo=document.getElementById('logo');
+logo.addEventListener('click',()=>{
+    window.location.href=`/home?username=${encodeURIComponent(username)}`;
+});
+
+
+</script>
+
+</body>
+</html>

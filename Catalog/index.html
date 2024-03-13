@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add title via liquid code here too -->
+    <title>Product Catalog</title>
+
+    <!-- Bootstrap CSS (Include Bootstrap from a CDN or locally) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+<!-- Header -->
+<header>
+    <nav class="flex align-center">
+        <div class="left flex align-center">
+            <img src="media/logo.jpg" id="logo" alt="myntra logo">
+            <ul class="flex">
+                <li class="product_catalog">MEN</li>
+                <li class="product_catalog">WOMEN</li>
+                <li class="product_catalog">KIDS</li>
+                <li class="product_catalog">HOME & LIVING</li>
+                <li class="product_catalog">BEAUTY</li>
+                <li class="product_catalog">STUDIO<sup>NEW</sup>  </li>
+            </ul>
+        </div>
+        
+        <div class="right flex ">
+            <div class="search">
+                <div>
+                    <button id="btn"><img src="media/search.png" alt="search"></button>
+                </div>
+                <div>
+                    <input type="text" placeholder="Search for products,brands and more">
+                </div>
+            </div>
+            
+
+            
+            <div class="special-right flex">
+                <div class="profile mx-2 font" id="profile">
+                    <img src="media/profile.png" alt="profile icon">Profile
+                </div>
+               
+                <div class="bag mx-2 font" id="cart">
+                    <img src="media/bag.png" alt="bag icon">Bag</div>
+                </div>
+                
+                
+            </div>
+        </nav>
+    </header>
+
+
+<!-- Main Section -->
+<div class="container mt-5">
+    <h2 class="mb-4" id="category-title"></h2>
+    <!-- <h2>Shop results for ${category}</h2> -->
+
+    <div class="row" id="products">
+
+
+    </div>
+
+</div>
+
+<div id="loading-overlay">
+    <div class="loader"></div>
+</div>
+
+<!-- Bootstrap JS (Include Bootstrap JS from a CDN or locally) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>

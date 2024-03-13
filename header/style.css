@@ -1,0 +1,114 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-weight:600;
+    font-size: 13px;
+    font-family: Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+
+.mobile-header{
+    display:none;
+}
+
+.rollup{
+    width: 95vw;
+}
+
+.product-catalog{
+    cursor: pointer;
+}
+
+#logo{
+    cursor: pointer;
+    width: 5vw;
+    mix-blend-mode: hard-light;
+}
+
+#profile,#cart{
+    cursor: pointer;
+}
+
+#searchBar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+#searchQueryInput {
+  width: 100%;
+  height: 2.8rem;
+  background: rgb(227, 227, 227);
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  
+  padding: 0 3.5rem 0 1.5rem;
+  font-size: 1rem;
+}
+
+#searchBtn {
+    width: 3.5rem;
+    height: 2.8rem;
+    margin-left: -3.5rem;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+sup{
+    vertical-align: super;
+    font-size:x-small;
+    margin:2px;
+    color:red;
+}
+
+.center{
+    text-align: center;
+}
+
+.icon{
+    display: block;
+    width:1.5em;
+}
+
+.special-right{
+    display: block;
+}
+
+@media (min-width:768px) and (max-width:830px){
+    ul{
+        width:100vw;
+    }
+    #searchBar{
+        margin-left: 0px;
+    }
+}
+
+@media (min-width:500px) and (max-width:768px) {
+    #searchBar{
+        max-width:0px;
+        display: none;
+    }
+
+    .icon{
+        display: none;
+    }
+
+    
+}
+
+@media only screen and (max-width:500px){
+    .laptop-header{
+        display:none;
+    }
+
+    .mobile-header{
+        display:flex;
+    }
+    
+    
+
+}
